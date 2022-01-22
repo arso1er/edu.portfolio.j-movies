@@ -95,12 +95,13 @@ async function showMovie(e) {
     });
     myModal.show();
 
-    const id = e.target.dataset.movie;
-    const { movie } = await getMovieById(id);
-    const { genre } = await getMovieGenre(id);
-    const { producer } = await getMovieProducer(id);
-    //   console.log(movie, genre, producer);
-    domModalBody.innerHTML = `
+    try {
+      const id = e.target.dataset.movie;
+      const { movie } = await getMovieById(id);
+      const { genre } = await getMovieGenre(id);
+      const { producer } = await getMovieProducer(id);
+      //   console.log(movie, genre, producer);
+      domModalBody.innerHTML = `
             <div>
               <div class="fw-bold text-primary">Synopsys</div>
               <div class="text-uppercase">
@@ -140,6 +141,9 @@ async function showMovie(e) {
                 : ""
             }  
       `;
+    } catch (error) {
+      domModalBody.innerHTML = "An error occured.";
+    }
   }
 }
 
@@ -205,7 +209,7 @@ document.addEventListener("DOMContentLoaded", async function (event) {
   // Infinite scroll
   function handleIntersect(entries) {
     if (entries[0].isIntersecting) {
-    //   console.warn("something is intersecting with the viewport");
+      //   console.warn("something is intersecting with the viewport");
       getData();
     }
   }
