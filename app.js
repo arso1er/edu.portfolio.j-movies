@@ -4,7 +4,7 @@ const app = express();
 
 app.use(express.static(__dirname + "/public"));
 
-const mysql = require("mysql");
+const mysql = require("mysql2");
 const connection = mysql.createConnection({
   host: "localhost",
   user: "jeff",
