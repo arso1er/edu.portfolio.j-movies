@@ -25,7 +25,7 @@ app.get("/api/movies", (req, res) => {
       if (error) {
         return res.status(500).json({ error: error.message });
       }
-      //   console.log(results[0]);
+
       res.json({ movies: results });
     }
   );
@@ -46,7 +46,7 @@ app.get("/api/search", (req, res) => {
       if (error) {
         return res.status(500).json({ error: error.message });
       }
-      //   console.log(results[0]);
+
       res.json({ movies: results });
     }
   );
@@ -59,7 +59,7 @@ app.get("/api/movies/:id", (req, res) => {
       if (error) {
         return res.status(500).json({ error: error.message });
       }
-      // console.log(results[0]);
+
       res.json({ movie: results[0] });
     }
   );
@@ -72,7 +72,7 @@ app.get("/api/movies/:id/genres", (req, res) => {
       if (error) {
         return res.status(500).json({ error: error.message });
       }
-      // console.log(results[0]);
+
       res.json({ genre: results[0] });
     }
   );
@@ -85,7 +85,7 @@ app.get("/api/movies/:id/producers", (req, res) => {
       if (error) {
         return res.status(500).json({ error: error.message });
       }
-      // console.log(results[0]);
+
       res.json({ producer: results[0] });
     }
   );
@@ -106,7 +106,7 @@ app.get("/api/home-infinite", (req, res) => {
       if (error) {
         return res.status(500).json({ error: error.message });
       }
-      //   console.log(results[0]);
+
       res.json({ movies: results });
     }
   );
