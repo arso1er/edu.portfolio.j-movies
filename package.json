@@ -1,18 +1,21 @@
 {
-  "name": "js_backend",
+  "name": "j-movies",
   "version": "1.0.0",
-  "description": "",
+  "description": "J-Movies is a simple web application allowing you to instantly search for information on movies available in our database.",
   "main": "app.js",
   "dependencies": {
     "dotenv": "^16.0.1",
     "express": "^4.17.1",
     "mysql2": "^2.3.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
   "scripts": {
-    "start": "node app.js"
+    "dev": "NODE_ENV=development nodemon app.js",
+    "start": "NODE_ENV=production node app.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }
