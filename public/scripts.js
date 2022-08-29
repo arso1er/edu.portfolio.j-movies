@@ -71,7 +71,6 @@ async function populateHome() {
   if (appHome) {
     appHome.insertAdjacentHTML("beforeend", out);
   }
-  //   console.log(res);
 }
 
 // Show movie details
@@ -100,7 +99,7 @@ async function showMovie(e) {
       const { movie } = await getMovieById(id);
       const { genre } = await getMovieGenre(id);
       const { producer } = await getMovieProducer(id);
-      //   console.log(movie, genre, producer);
+
       domModalBody.innerHTML = `
             <div>
               <div class="fw-bold text-primary">Synopsys</div>
@@ -161,7 +160,6 @@ async function search() {
   }
 
   const { movies } = await searchMovie(value);
-  //   console.log(movies);
   let out = "";
   movies.forEach((movie) => {
     out += `
@@ -188,7 +186,6 @@ async function searchSubmit(e) {
 }
 
 document.addEventListener("DOMContentLoaded", async function (event) {
-  //   console.log(await getMovieProducer(0));
   await populateHome();
 
   document.addEventListener("click", showMovie);
@@ -203,13 +200,11 @@ document.addEventListener("DOMContentLoaded", async function (event) {
     search();
     searchInput.addEventListener("keyup", search);
     searchInput.addEventListener("focus", search);
-    // searchInput.addEventListener("blur", clearSearch);
   }
 
   // Infinite scroll
   function handleIntersect(entries) {
     if (entries[0].isIntersecting) {
-      //   console.warn("something is intersecting with the viewport");
       getData();
     }
   }
@@ -246,6 +241,6 @@ document.addEventListener("DOMContentLoaded", async function (event) {
   };
   const observer = new IntersectionObserver(handleIntersect, options);
   observer.observe(document.querySelector("#infite-trigger"));
-  //an initial load of some data
+  // Initial load of movies
   getData();
 });
